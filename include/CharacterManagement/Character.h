@@ -4,8 +4,11 @@
 class Character
 {
 private:
-
+    std::string name;
+    std::string initialGreeting;
 public:
-    virtual std::string getInitialGreeting() = 0;
+    Character(std::string name, std::string initialGreeting) : name(name), initialGreeting(initialGreeting) {}
+    std::string getInitialGreeting();
     std::vector<std::string> query(std::string safeQuery);
+    std::string getName() { return this->name; }
 };
