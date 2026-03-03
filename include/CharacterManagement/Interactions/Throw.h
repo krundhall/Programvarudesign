@@ -4,10 +4,9 @@
 class Throw : public InteractionType
 {
 private:
-    std::vector<std::string> descriptions;
     std::string objectName;
 public:
-    Throw(std::string objectName,std::vector<std::string> descriptions) : InteractionType("Throw"), descriptions(descriptions), objectName(objectName)
+    Throw(std::string objectName) : InteractionType("Throw"), objectName(objectName)
     {
         this->interactionOptions.push_back("Throw like your bones will shatter.");
         this->interactionOptions.push_back("Throw with purpose.");

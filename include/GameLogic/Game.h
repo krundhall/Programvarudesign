@@ -2,6 +2,8 @@
 #include "GameObjects/GameObject.h"
 #include "../CharacterManagement/InteractionType.h"
 #include "../CharacterManagement/CharacterInterface.h"
+#include "include/GameLogic/GameWorld/VolcanoScene.h"
+#include "include/GameLogic/GameWorld/InventoryScene.h"
 #include "../UI/UserInterface.h"
 #include "GameWorld/Scene.h"
 #include <vector>
@@ -35,9 +37,17 @@ private:
     Scene* currentScene;
     Scene* inventory;
 public:
-    Game();
-
-    std::vector<InteractionType> selectObject(std::string &gameObjectName);
+    Game()
+    {
+        this->currentScene = new VolcanoScene();
+        this->inventory = new InventoryScene();
+    }
+    ~Game()
+    {
+        delete this->currentScene;
+        delete this->inventory;
+    }
+    std::vector<std::string> selectObject(std::string &gameObjectName);
     std::vector<std::string> selectInteraction(std::string &interactionType);
     // Since this is a minimal viable product
     // we have decided to change "setInteractionOptions" to be singular

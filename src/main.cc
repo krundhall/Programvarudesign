@@ -9,7 +9,6 @@
 
 int main(int argc, char* argv[]) {
 
-    Game game = Game();
     UserInterface ui = UserInterface(&game);
 
     ui.start();
