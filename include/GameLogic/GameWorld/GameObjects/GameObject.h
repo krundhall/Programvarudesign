@@ -1,3 +1,4 @@
+#pragma once
 #include "../../../CharacterManagement/InteractionType.h"
 #include <vector>
 class GameObject
