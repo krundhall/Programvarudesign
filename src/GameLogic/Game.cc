@@ -18,15 +18,20 @@ std::vector<std::string> Game::selectObject(std::string &gameObjectName)
 {
     this->currentGameObject = currentScene->findGameObject(gameObjectName);
 
-    return currentGameObject->listInteractionTypes()
+    return currentGameObject->listInteractionTypes();
 }
 
 std::vector<std::string> Game::selectInteraction(std::string &interactionType)
 {
-    return this->currentGameObject->listInteractionOptions(interactionType);
+    /*
+    same name for methods in two different classes
+    took me 30min to find why shit wasnt working
+    the time is currently 00:47 and im hungry
+    */
+    return this->currentGameObject->selectInteraction(interactionType);
 }
 
-bool Game::setInteractionOption(std::string option)
+bool Game::setInteractionOption(std::string &option)
 {
     return currentGameObject->setSelectedInteractionOption(option);
 }
@@ -36,7 +41,7 @@ std::string Game::startInteraction()
     return currentGameObject->startSelectedInteraction();
 }
 
-std::unique_ptr<CharacterInterface> initiateConversation(std::string theCharacter)
+std::unique_ptr<CharacterInterface> Game::initiateConversation(std::string theCharacter)
 {
     /*
     when a player starts a conversation, game creates a characterinterface ig?
