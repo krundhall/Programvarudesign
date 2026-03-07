@@ -18,6 +18,7 @@ protected:
     std::vector<std::string> interactionOptions;
 public:
     InteractionType(std::string name);
+    virtual ~InteractionType() = default;
 
     std::vector<std::string> getInteractionOptions();
     bool setOption(std::string &option);
