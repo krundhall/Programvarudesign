@@ -10,11 +10,10 @@ protected:
     std::string name;
     std::vector<Character*> characters;
     std::vector<GameObject*> objects;
-
 public:
     Scene(std::string name);
     GameObject* findGameObject(std::string &gameObjectName);
-    bool isAvailable(std::string theCharacter);
+    bool isAvailable(std::string &theCharacter);
     std::string getName() const;
     std::vector<std::string> getCharacters(); //Returns the names of all characters
     std::vector<std::string> getObjects(); //Returns the names of all objects
