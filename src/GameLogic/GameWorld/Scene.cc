@@ -2,6 +2,15 @@
 
 Scene::Scene(std::string name) : name(name) {}
 
+Scene::~Scene() {
+    for(GameObject* object : this->objects) {
+        delete object;
+    }
+    for(Character* character : this->characters) {
+        delete character;
+    }
+}
+
 GameObject* Scene::findGameObject(std::string &gameObjectName) {
     /* Returns a nullptr when object cant be found */
     for(GameObject* gameObject : this->objects) {
